@@ -1,18 +1,24 @@
+
 name: Mark stale pull requests
+
 
 on:
   schedule:
   - cron: "0 */6 * * *"
 
+
 permissions:
   pull-requests: write
+
 
 jobs:
   stale:
     if: github.repository_owner == 'python'
 
+
     runs-on: ubuntu-latest
     timeout-minutes: 10
+
 
     steps:
     - name: "Check PRs"
@@ -26,3 +32,4 @@ jobs:
         days-before-close: -1
         ascending: true
         operations-per-run: 120
+
